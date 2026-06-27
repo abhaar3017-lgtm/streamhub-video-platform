@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>StreamHub</title>
+    <style>
+        body { font-family: Arial; background: #0f0f0f; color: white; margin: 0; }
+      .header { background: #212121; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
+      .header h1 { margin: 0; color: red; }
+      .header a { color: white; text-decoration: none; background: #ff0000; padding: 10px 20px; border-radius: 5px; }
+      .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; padding: 30px; }
+      .card { background: #212121; border-radius: 8px; overflow: hidden; cursor: pointer; }
+      .card:hover { transform: scale(1.05); transition: 0.2s; }
+      .thumbnail { width: 100%; height: 180px; background: #333; display: flex; align-items: center; justify-content: center; font-size: 48px; }
+      .info { padding: 15px; }
+      .title { font-weight: bold; margin-bottom: 5px; }
+      .views { color: #aaa; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>▶ StreamHub</h1>
+        <a href="/upload">+ Upload Video</a>
+    </div>
+    <div class="grid">
+        {% for video in videos %}
+        <div class="card" onclick="window.location='/watch/{{ video[0] }}'">
+            <div class="thumbnail">🎬</div>
+            <div class="info">
+                <div class="title">{{ video[1] }}</div>
+                <div class="views">{{ video[3] }} views • {{ video[4] }}</div>
+            </div>
+        </div>
+        {% endfor %}
+        {% if not videos %}
+        <h2 style="color:#aaa;">No videos yet. Upload one!</h2>
+        {% endif %}
+    </div>
+</body>
+</html>

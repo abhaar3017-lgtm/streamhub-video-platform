@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head><title>{{ video[1] }} - StreamHub</title></head>
+<body style="background:#0f0f0f; color:white; font-family:Arial; margin:0;">
+    <div style="padding:20px; max-width:1200px; margin:auto;">
+        <a href="/" style="color:white; text-decoration:none;">← Back</a>
+        <h1>{{ video[1] }}</h1>
+        <video width="100%" controls style="border-radius:8px;">
+            <source src="/uploads/{{ video[2] }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p style="color:#aaa;">{{ video[3] }} views • Uploaded: {{ video[4] }}</p>
+    </div>
+</body>
+</html>
